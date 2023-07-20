@@ -1,0 +1,6 @@
+# Ignore all files
+*
+.*
+
+# Exclusions
+!README.md

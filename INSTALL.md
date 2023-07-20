@@ -1,0 +1,5 @@
+- Modify docker-copose.yml to include DB creds
+- `docker-compose up`
+- Navigate to `127.0.0.1`
+- When prompted, paste the password that was logged to stdout.
+- 

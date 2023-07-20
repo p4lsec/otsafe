@@ -1,0 +1,7 @@
+# Ignore all files
+*
+.*
+
+# Exclusions
+!README.md
+!init.sql

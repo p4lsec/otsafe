@@ -1,0 +1,50 @@
+version: "3.7"
+
+services:
+
+  jenkins:
+    image: "jenkins/jenkins:lts-jdk11"
+    volumes:
+      - "./docker/jenkins:/var/jenkins_home"
+    user: "501:20"
+    expose:
+      - 8080
+    networks:
+      - otsec
+    restart: always
+
+  redis:
+    image: "redis:latest"
+    networks:
+      - otsec
+    volumes:
+      - ./docker/redis:/var/lib/redis/data
+    restart: always
+
+  nginx:
+    image: "nginx:alpine"
+    volumes:
+      - "./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
+    ports:
+      - "80:80"
+    networks:
+      - otsec
+    restart: always
+
+  postgres:
+    image: "postgres:alpine"
+    volumes:
+      - "./docker/postgres:/var/lib/postgresql/data"
+    networks:
+      - otsec
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_USER=changeme
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db
+    restart: always
+
+networks:
+  otsec:
+    external: false
