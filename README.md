@@ -1,6 +1,6 @@
 # OTsafe
 
-OTsafe is a Python-based framework which enables new cyber-safety modeling, detection, and response capabilities. Designed to secure critical processes down at the lowest levels, OTsafe allows practicioners to secure systems from cyber-physical threats, where priorities include the protection of people, equipment, and the environment.
+OTsafe is a Python-based framework which enables new cyber-safety modeling, detection, and response capabilities. Designed to secure critical processes down at the lowest levels, OTsafe allows practitioners to secure systems from cyber-physical threats, where priorities include the protection of people, equipment, and the environment.
 
 ## Use Cases
 
