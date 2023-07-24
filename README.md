@@ -1,101 +1,79 @@
-# OTsafe
+# OTsafe: Securing Critical Processes
 
-OTsafe is a Python-based framework which enables new cyber-safety modeling, detection, and response capabilities. Designed to secure critical processes down at the lowest levels, OTsafe allows practitioners to secure systems from cyber-physical threats, where priorities include the protection of people, equipment, and the environment.
+OTsafe is a Python-based framework designed to model, detect, and respond to cyber-physical threats. By providing a layer of abstraction over industrial processes, OTsafe allows for a real-time cross-section of disparate data sources, ensuring the safety of personnel, equipment, and the environment.
+
+## Overview
+
+OTsafe aims to prevent *"control loop compromises"* - instances where components of a control loop within a control system are influenced beyond safe operating parameters, whether accidentally or maliciously.
+
+OTsafe's core strength is its ability to model real-world systems and apply various data sources to bring these models to life. It detects unsafe, suspicious, or anomalous conditions, regardless of their cause or intent.
+
+The three main elements of OTsafe include:
+
+- A core library that establishes common syntax for any industrial component
+- An extensible framework which allows teams to model systems, connect them to live control system data, and then test and apply custom detections and responses. (Contact me if you want to collaborate on this! Need more hardware testing)
+- Project implementation automation hub, provided via Jenkins. This helps you build, test, and deploy your specific implementation. 
 
 ## Use Cases
 
- OTsafe is a tool designed to assist in the following scenarios:
+OTsafe can be applied across a variety of scenarios for bolstering the safety measures of physical processes, and ensuring that people, equipment, and environments are protected. Here are a few use cases:
 
-- Highly secured networks, where deviation from baseline should trigger a cybersecurity response. 
-- Orgs who have assessed physical risk as a top priority, and want to apply a layer of controls
-- Engineers, including cyber risk scenarios while conducting Failure Mode and Effects Analysis (FMEA). 
-- OT/IIoT Cybersecurity Engineers, SOCs, and teams who want to ensure that they prioritize the safety of people, equipment, and the environment.  
-- CISOs who want to apply an auditable layer of controls to account for cyberattacks or otherwise anomolous observables. 
-- People building connectors between disparate data sources, such as historians, inventory management systems, detection, playbooks, thrunting, and more.  
-- People who make other software or provide services, whether open or closed source, non- or for-profit.
-- People who want to build active and passive asset inventory capabilities. 
-- Creative individuals who enjoy making the world a better place, and maybe even want to contribute code to this project. 
+- **High-Security Environments**: OTsafe is ideal for organizations that operate in highly secure environments, such as critical infrastructure, where any deviation from normal operating parameters could have significant implications. OTsafe's comprehensive monitoring and control measures can help prevent, detect, and respond to anomalies before they cause damage.
 
-Who this is not for:
+- **Safety Prioritization**: Organizations that prioritize safety and want an additional layer of controls can benefit from OTsafe. It offers a comprehensive set of tools to monitor and manage equipment, ensuring safe operation and compliance with safety standards.
 
-- Submarine Tycoons
-- A helpdesk/IT/network/security team of three people
+- **Risk Assessment and Mitigation**: Engineers conducting Failure Mode and Effects Analysis (FMEA) can leverage OTsafe to incorporate cyber risk scenarios into their assessments. By simulating potential threats and analyzing their impacts, teams can build more robust mitigation strategies.
+
+- **Integrated Operations Centers**: For organizations that seek to ensure the safety of people, equipment, and the environment, OTsafe could serve as a technical hub for various remediation efforts. It helps connect and correlate data from disparate sources, enabling more comprehensive monitoring and response.
+
+- **Compliance Teams**: CISOs and internal compliance teams aiming to demonstrate compliance with, and even applying an auditable layer of controls can benefit from OTsafe. It facilitates clear documentation of safety measures, providing a trail for internal and external audits.
+
+- **Health, Safety, and Environmental (HSE) Staff**: HSE teams can use OTsafe as a crucial tool in their Process Safety Management (PSM) programs. By standardizing and indexing required data such as safe operating parameters, OTsafe can operationalize this intelligence. Furthermore, OTsafe's modeling and simulation capabilities can aid HSE staff in predicting and preventing potential safety incidents, further strengthening the organization's commitment to a proactive safety culture.
+
+- **Data Integration**: For those working on connecting disparate data sources and capabilities, like historians, inventory management systems, detection engines, and playbooks, OTsafe provides a common platform to integrate these sources and create comprehensive views of processes.
+
+- **Community Development**: Those interested in making a positive impact on safety practices in the industry can use OTsafe as a springboard for their ideas. With its open-source nature, OTsafe encourages contributions and collaborations.
+Please note that OTsafe may not be suitable for small teams with limited resources, or in scenarios where a comprehensive safety-oriented solution is not necessary.
 
 ## Core Library
 
-The core component of OTsafe is a Python library/API, which can be used to represent the pertinent components of a cyber-physical process. Once the components are modeled into a system, the library will allow you to connect your process telemetry data (sensors, valve states, etc) to other processes.  
-
-How to build a sensor in OTsafe:
-
-```
-from OTsafe.components.sensors import Sensor
-
-tps = Sensor(
-    name = "Tank Pressure Sensor",
-    description = "Primary pressure sensor attached to top of the vessel",
-    id = "D34DB33F",
-    owner = get_owner(id)
-    bu = get_bu(id),
-    type = "Pressure",
-    status = "Operational",
-    location = "Top of Vessel",
-    value = 20,
-    units = " PSI",
-    min_value = 0,
-    max_value = 100,
-    min_threshold = 10,
-    max_threshold = 90,
-    min_alarm = 0,
-    max_alarm = 100,
-    min_alarm_delay = 0,
-    max_alarm_delay = 0,
-    min_alarm_message = "TANK PRESSURE IS DANGEROUSLY LOW!",
-    max_alarm_message = "TANK PRESSURE IS DANGEROUSLY HIGH!",
-    min_threshold_message = "Tank Pressure is too low!",
-    max_threshold_message = "Tank Pressure is too high!",
-    min_alarm_enabled = False,
-)
-
-# Take live sensor readings. Make your own historian! 
-# >>> tps.read()
-# 20
-# >>>
-
-# Make realistic, noisy sensors.  Build detections based off of noisy baselines! 
-# >>> tps.noisy_read(.2)
-# 19
-# >>> tps.noisy_read(.2)
-# 21
-# >>> tps.noisy_read(.2)
-# 20
-# >>>
-
-```
+The core library of OTsafe is a Python API enabling users to model pertinent components of a cyber-physical process. It allows real-time sensor readings, emulates noisy sensors, and offers a wide array of features for realistically representing industrial components.
 
 ## Detections
 
-Once process telemetry data is successfully ingested, you can build detections for unsafe conditions.  These detections are freeform, and are designed to match the monitored value’s state.  Use cases for detections are wide open to the user!  The best detections will need to be intelligently engineered.  The process engineers and SMEs would need to be involved in building smart detections. 
-
-This will allow them to build detections for anomalous and even malicious modifications to the process. For instance, if a burner was turned on but the PLC did not issue the command, and it's not in a normal state, we could build alerts, or even build automation to override the system and return it to a safe state. Think of it as a layer of safety over the SIS. 
-
-The detection engine relies on a PyModbus server, which applies detections against every packet it's fed.  In the event of a hit, the result can kick off various response processes.  Again, this is left to the creativity of the user!
-
-Included in the `demo/` folder is a tool used to showcase a compromised engineering workstation being used to send malicious commands to a PLC.  The demo also shows how OTsafe can be used to detect the attack, and render the system safe.  
+Once process telemetry data is ingested, OTsafe enables the building of detections for unsafe conditions. Detections are engineered intelligently, often involving process engineers and subject matter experts (SMEs). This allows for the detection of anomalous and malicious modifications to the process.
 
 ## Automation capabilities
 
-Responding to conditions is the primary responsibility of your OT equipment, as it was originally designed. But in the event that an attacker attempts to compromise a system, an SIS has been targetted, an SIS fails, or otherwise lacks larger context that this system may have, this system can be used to fill risk gaps not otherwise covered. It would be feasible to make cyber "Stop The Job" button, which would take network-wide defensive measures in the event of a disruption (ransomware, malicious attack, unsafe conditions detected, etc)
+OTsafe utilizes Jenkins for orchestration, allowing for easy deployment, scalability, and serving as an automation platform. It enables system-wide defensive measures in the event of a disruption.
 
-OTsafe uses Jenkins as the primary orchestration engine.  This allows for easy deployment, plus instant expandability and scalability, while also serving as an automation platform.  
+## Getting Started
 
-## Disclaimer
+To start using OTsafe, please see this Jupyter notebook for an interactive guide. 
 
-- There are so many caveats and unaccounted-for gotchas in this project.  The scope will continue to evolve and change as time marches on.  Please share any feedback you have on this project!  PR and collaboratiors welcome!  
+## Roadmap
 
-- The use of OTsafe should be viewed as another layer of protection, on top of existing and adequate Safety Instrumented Systems (SIS).  OTsafe is not a life-saving product, and should not be solely relied upon to provide immediate life-saving reliability.  Ubuntu and Python don’t run safety-critical processes.  
+As OTsafe continues to grow and evolve, our roadmap includes several exciting updates and features. Please find below some of the enhancements we are looking to incorporate:
 
-## Notes
+- **Mapping to IEC 62443**: One of our primary roadmap items is to map the features and capabilities of OTsafe to IEC 62443, an international series of standards on "Industrial communication networks - Network and system security." The goal is to provide clear guidance on how OTsafe can assist in achieving compliance with these widely-recognized standards, thereby boosting the credibility of your cybersecurity initiatives and assuring stakeholders of the robustness of your defenses.
 
-- This project does NOT use a legitimate physics-based backend.  Attributes do not influence each other, via the use of a physics model or otherwise.  Raising the heat will not have a direct effect on the pressure of a vessel.  Setting the flow rate to 9999999999 will not change any other attributes. 
+- **Integration with Additional Data Sources**: We plan to expand OTsafe's ability to integrate with additional data sources, enabling you to gain a more comprehensive understanding of your industrial processes and systems. This will improve anomaly detection capabilities and provide a more complete picture of your system's status.
 
-- Why Python?  First off, let's talk about Python.  It's not the best language!  Pretty much ever, for anything.  But, it is often the second best language.  That may or may not be the case here, who knows.  The Python ecosystem continue to grow and evolve, and new relatives like Mojo aim to solve performance problems in innovative and promising ways, while keeping the familiar native Python syntax.  
+- **Improved User Interface**: We're continuously working on enhancing the user experience and making the system more intuitive and user-friendly. This includes improvements to the dashboard, notifications system, and process modeling capabilities.
+
+- **Advanced Detection Capabilities**: We aim to enhance OTsafe's detection engine by incorporating more sophisticated algorithms and machine learning techniques. This will allow us to better identify patterns and detect anomalies, thereby enhancing the system's ability to prevent accidents and security incidents.
+
+- **Customization Features**: We understand that every industrial system is unique, and our aim is to allow users to customize OTsafe to best fit their needs. This includes the ability to define custom thresholds, alerts, and responses. Default dashboards are planned. 
+
+- **Further Automation Capabilities**: We're planning on expanding OTsafe's automation capabilities to include more scenarios and response actions, with the aim to increase operational efficiency and speed up incident response times. Jenkins is optionally available as the project hub. Examples showing how to automate detection engineering testing/deployment via CI/CD pipelines will be included. This is a capability your SOC should seek to have! 
+
+
+## Community
+
+ICS security has been an industry that continually stands on the shoulders of giants. We encourage feedback and contributions from you! Your input is vital in shaping the future of OTsafe. If you would like to get more involved in writing code, testing the application and capabilites of this code, etc, please reach out. 
+
+## Disclaimers
+
+- This project should be considered a research and development project, and should not be solely relied upon to provide immediate life-saving reliability. It is intended as an additional layer of protection, supplementing existing and adequate Safety Instrumented Systems (SIS).
+
+- Python was chosen as the language of choice due to its wide ecosystem and ease of use. While not the best language in many cases, Python's wide adoption, versatility, and the anticipated performance improvements via its evolving ecosystem made it suitable for this research project. 
