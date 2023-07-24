@@ -1,4 +1,4 @@
-# OTsafe: Securing Critical Processes
+# # [![OTsafe Logo](./images/otsafe.png) OTsafe: Securing Critical Processes](https://otsafe.org)
 
 OTsafe is a Python-based framework designed to model, detect, and respond to cyber-physical threats. By providing a layer of abstraction over industrial processes, OTsafe allows for a real-time cross-section of disparate data sources, ensuring the safety of personnel, equipment, and the environment.
 
@@ -55,12 +55,14 @@ To install the core library from PyPI:
 pip install otsafe
 ```
 
-To clone the repo in order to install the full suite, Jenkins, etc:
+To clone the repo in order to install the full tooling (Jenkins, nginx, Postgres, Redis, etc):
 
 ```
 git clone git@github.com:p4lsec/otsafe.git
 cd otsafe
 pip install .
+vim docker-compose.yml # update this file with your postgres values
+docker-compose up
 ```
 
 ## Getting Started
