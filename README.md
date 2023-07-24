@@ -1,4 +1,4 @@
-# # [![OTsafe Logo](./images/otsafe.png) OTsafe: Securing Critical Processes](https://otsafe.org)
+# [![OTsafe Logo](./images/otsafe.png) OTsafe: Securing Critical Processes](https://otsafe.org)
 
 OTsafe is a Python-based framework designed to model, detect, and respond to cyber-physical threats. By providing a layer of abstraction over industrial processes, OTsafe allows for a real-time cross-section of disparate data sources, ensuring the safety of personnel, equipment, and the environment.
 
@@ -13,6 +13,10 @@ The three main elements of OTsafe include:
 - A [core library](#core-library) that establishes common syntax for any industrial component
 - An extensible framework which allows teams to model systems, connect them to live control system data, and then test and apply custom detections and responses. (Contact me if you want to collaborate on this! Need more hardware testing)
 - Project implementation automation hub, provided via Jenkins. This helps you build, test, and deploy your specific implementation. 
+
+## Getting Started
+
+To start using OTsafe, please see [this Jupyter notebook](otsafe/demo/demo.ipynb) for an interactive demo and guide. 
 
 ## Use Cases
 
@@ -64,10 +68,6 @@ pip install .
 vim docker-compose.yml # update this file with your postgres values
 docker-compose up
 ```
-
-## Getting Started
-
-To start using OTsafe, please see [this Jupyter notebook](otsafe/demo/demo.ipynb) for an interactive demo and guide. 
 
 ## Roadmap
 
