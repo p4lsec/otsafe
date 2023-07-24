@@ -9,12 +9,17 @@ class Component:
         ip: str = None,
         port: int = None,
         description: str = None,
+        **kwargs
     ):
+
         self.id = id or str(uuid4())
         self.ip = ip
         self.port = port
         self.description = description
         self.created_at = datetime.now()
+        
+        # Apply kwargs last so they can override the defaults
+        self.__dict__.update(kwargs)
 
     def __str__(self):
         return self.id

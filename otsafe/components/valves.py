@@ -11,8 +11,11 @@ class Valve(Component):
     """
 
     def __init__(
-        self, name: str, state: bool = None, open_percentage: float = 0
+        self, name: str, state: bool = None, open_percentage: float = 0, **kwargs
     ) -> None:
         super().__init__(name)
         self.state = state
         self.open_percentage = open_percentage
+        
+        # Apply kwargs last so they can override the defaults
+        self.__dict__.update(kwargs)

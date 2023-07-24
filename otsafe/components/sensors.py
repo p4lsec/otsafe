@@ -12,7 +12,7 @@ from datetime import datetime
 from random import random
 from time import sleep
 
-from components.generic import Component
+from otsafe.components.generic import Component
 
 
 class Sensor(Component):
@@ -29,6 +29,9 @@ class Sensor(Component):
         self.unit: str = unit
         self.__dict__.update(kwargs)
         self.last_updated: datetime = datetime.now()
+        
+        # Apply kwargs last so they can override the defaults
+        self.__dict__.update(kwargs)
         
 
     def read(self) -> int | str:
