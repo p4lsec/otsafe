@@ -4,9 +4,11 @@ name = "otsafe"
 version = "0.0.1"
 description = "OTsafe is a Python-based framework which enables new cyber-safety modeling, detection, and response capabilities. Designed to secure critical processes down at the lowest levels, OTsafe allows practicioners to secure systems from cyber-physical threats, where priorities include the protection of people, equipment, and the environment."
 dependencies = [
-  'python-dotenv',
-  'pymodbus',
-  'pyshark',
+  "cryptography"
+  "fido2"
+  "pymodbus",
+  "pyshark",
+  "python-dotenv",
 ]
 
 [build-system]
