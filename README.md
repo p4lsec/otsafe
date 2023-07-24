@@ -10,7 +10,7 @@ OTsafe's core strength is its ability to model real-world systems and apply vari
 
 The three main elements of OTsafe include:
 
-- A core library that establishes common syntax for any industrial component
+- A [core library](#core-library) that establishes common syntax for any industrial component
 - An extensible framework which allows teams to model systems, connect them to live control system data, and then test and apply custom detections and responses. (Contact me if you want to collaborate on this! Need more hardware testing)
 - Project implementation automation hub, provided via Jenkins. This helps you build, test, and deploy your specific implementation. 
 
@@ -47,9 +47,25 @@ Once process telemetry data is ingested, OTsafe enables the building of detectio
 
 OTsafe utilizes Jenkins for orchestration, allowing for easy deployment, scalability, and serving as an automation platform. It enables system-wide defensive measures in the event of a disruption.
 
+## Install
+
+To install the core library from PyPI:
+
+```
+pip install otsafe
+```
+
+To clone the repo in order to install the full suite, Jenkins, etc:
+
+```
+git clone git@github.com:p4lsec/otsafe.git
+cd otsafe
+pip install .
+```
+
 ## Getting Started
 
-To start using OTsafe, please see this Jupyter notebook for an interactive guide. 
+To start using OTsafe, please see [this Jupyter notebook](otsafe/demo/demo.ipynb) for an interactive demo and guide. 
 
 ## Roadmap
 
@@ -66,7 +82,6 @@ As OTsafe continues to grow and evolve, our roadmap includes several exciting up
 - **Customization Features**: We understand that every industrial system is unique, and our aim is to allow users to customize OTsafe to best fit their needs. This includes the ability to define custom thresholds, alerts, and responses. Default dashboards are planned. 
 
 - **Further Automation Capabilities**: We're planning on expanding OTsafe's automation capabilities to include more scenarios and response actions, with the aim to increase operational efficiency and speed up incident response times. Jenkins is optionally available as the project hub. Examples showing how to automate detection engineering testing/deployment via CI/CD pipelines will be included. This is a capability your SOC should seek to have! 
-
 
 ## Community
 
