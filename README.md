@@ -1,5 +1,7 @@
 # [![OTsafe Logo](./images/otsafe.png) OTsafe: Securing Critical Processes](https://otsafe.org)
 
+![Black wide smol](https://github.com/p4lsec/otsafe/assets/34799788/07f27f70-8a6e-4ad3-b8a6-939fcaea60d8)
+
 OTsafe is a Python-based framework designed to model, detect, and respond to cyber-physical threats. By providing a layer of abstraction over industrial processes, OTsafe allows for a real-time cross-section of disparate data sources, ensuring the safety of personnel, equipment, and the environment.
 
 ## Overview
