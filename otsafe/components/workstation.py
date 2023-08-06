@@ -3,11 +3,17 @@ from components.generic import Component
 
 class Workstation(Component):
     """
-    This class is designed to represent an engineering, safety engineering, or other workstation. 
+    This class is designed to represent an engineering, safety engineering, or other workstation. Includes default values for the host OS and application.  
     """
 
     def __init__(
-        self, name: str, os: str = None, os_version: str = None, hostname: str = None, user: str = None, **kwargs
+        self,
+        name: str,
+        os: str = None,
+        os_version: str = None,
+        hostname: str = None,
+        user: str = None,
+        **kwargs
     ) -> None:
         
         super().__init__(name)

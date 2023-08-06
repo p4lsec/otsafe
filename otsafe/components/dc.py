@@ -4,7 +4,7 @@ from components.generic import Component
 class DomainController(Component):
 
     """
-    This class is designed to represent a Domain Controller. 
+    This class is designed to represent a Domain Controller. Includes default values for the host OS and application.  
     """
 
     def __init__(
