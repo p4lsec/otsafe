@@ -21,3 +21,9 @@ class ComponentNotAlive(Exception):
     def __init__(self, message="Component is not alive"):
         self.message = message
         super().__init__(self.message)
+
+class AlarmException(Exception):
+    """Generic Alarm exception"""
+    def __init__(self, message="Alarm condition detected"):
+        self.message = message
+        super().__init__(self.message)
