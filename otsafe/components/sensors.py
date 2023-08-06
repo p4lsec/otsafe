@@ -34,16 +34,14 @@ class Sensor(Component):
         self.__dict__.update(kwargs)
         
 
-    def read(self) -> int | str:
-        if self.unit == "":
-            return self.value
-        else:
-            return f"{self.value}{self.unit}"
+    def read(self) -> str:
+        return f"{self.value}{self.unit}"
 
     def noisy_read(self, percentage: float) -> int:
-        return self.value * (
+        _value = self.value * (
             1 + (random() * percentage * 2 - percentage)
         )  # math was recommended by Copilot, hope it works!  Seems ok at a glance but I'm no mathmagician.  -Jace
+        return f"{_value}{self.unit}"
 
     def change_value_over_time(self, value: int, seconds: int):
         """

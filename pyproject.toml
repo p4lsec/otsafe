@@ -6,10 +6,10 @@ authors = [
 ]
 description = "OTsafe is a Python-based framework which enables new cyber-safety modeling, detection, and response capabilities. Designed to secure critical processes down at the lowest levels, OTsafe allows practicioners to secure systems from cyber-physical threats, where priorities include the protection of people, equipment, and the environment."
 dependencies = [
-  "cryptography"
+  "cryptography",
   "pymodbus",
   "pyshark",
-  "python-dotenv",
+  "python-dotenv"
 ]
 readme = "README.md"
 
