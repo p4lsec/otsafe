@@ -6,7 +6,7 @@ class UnsafeCondition(Exception):
 
 class ConnectionError(Exception):
     """Raised when a connection error occurs"""
-    def __init__(self, message="Unable to connect to database"):
+    def __init__(self, message="Unable to connect"):
         self.message = message
         super().__init__(self.message)
 
