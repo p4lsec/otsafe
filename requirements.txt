@@ -1,0 +1,4 @@
+cryptography
+pymodbus
+pyshark
+python-dotenv
