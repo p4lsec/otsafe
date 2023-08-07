@@ -2,21 +2,13 @@
 
 ![Black wide smol](https://github.com/p4lsec/otsafe/assets/34799788/969cd683-09a0-4bd0-8e4f-9b52a279683b)
 
-OTsafe is a Python-based framework designed to model, detect, and potentially respond to cyber-physical threats. By providing a layer of abstraction over industrial processes, OTsafe allows for a real-time cross-section of disparate data sources, ensuring the safety of personnel, equipment, and the environment. OTsafe's goal is to fill gaps in monitoring and detecting unsafe conditions at Purdue Levels 0-2. 
+OTsafe is a Python-based framework designed to enhance the visibility and security of safety-critical functions in operational technology (OT) environments. It offers capabilities to model, detect, and assist in responding to cyber-physical threats, whether they arise from intentional actions or accidents.
 
-The beauty of OTsafe is that the tool allows you to abstract away the implementation-specific details of the control network, allowing users to focus on the functions and interaction of components.  From there, users can build detections and automation around things like the unsafe conditions, attacker TTPs, and more. 
+A primary aim of OTsafe is to prevent "control loop compromises" - instances where components of a control loop within a system are influenced beyond safe operating parameters, either accidentally or maliciously. By abstracting the complexities of industrial processes, OTsafe empowers teams to model their control systems, enabling a concentrated focus on building systems that are both safe and secure.
 
-## Overview
+One of OTsafe's core strengths is its ability to model real-world systems and apply various data sources to bring these models to life. Through the ingestion of resources like PCAPs, asset inventory databases, and more, it provides a real-time cross-sectional view of various data sources, detecting unsafe, suspicious, or anomalous conditions, regardless of their cause or intent. A key objective is to address the gaps in monitoring and detecting unsafe conditions, particularly at Purdue Levels 0-2.
 
-OTsafe aims to prevent *"control loop compromises"* - instances where components of a control loop within a control system are influenced beyond safe operating parameters, whether accidentally or maliciously.
-
-OTsafe's core strength is its ability to model real-world systems and apply various data sources to bring these models to life. It detects unsafe, suspicious, or anomalous conditions, regardless of their cause or intent.
-
-The three main elements of OTsafe include:
-
-- A [core library](#core-library) that establishes common syntax for any industrial component
-- An extensible framework which allows teams to model systems, connect them to live control system data, and then test and apply custom detections and responses. (Contact me if you want to collaborate on this! Need more hardware testing)
-- Project implementation automation hub, provided via Jenkins. This helps you build, test, and deploy your specific implementation. 
+The abstraction layer of OTsafe ensures that users can account for the unique, implementation-specific details of their control networks. This allows for a more in-depth focus on the functions and interactions of system components. Consequently, users can develop detections and automation strategies centered on aspects such as unsafe conditions, attacker TTPs, and beyond.
 
 ## Use Cases
 
@@ -38,16 +30,28 @@ OTsafe can be applied across a variety of scenarios for bolstering the safety me
 
 - **Data Integration**: For those working on connecting disparate data sources and capabilities, like historians, inventory management systems, detection engines, and playbooks, OTsafe provides a common platform to integrate these sources and create comprehensive views of processes.
 
+- **Safety Engineering**: Team responsible for the safety engineering of systems can use OTsafe to assist in building safe, reliable procedures and environments.  This includes FMEA, FTA, and HAZOP analysis.  These realms are not typically/fully inclusive of cybersecurity-related incidents or mitigations. 
+
 - **Community Development**: Those interested in making a positive impact on safety practices in the industry can use OTsafe as a springboard for their ideas. With its open-source nature, OTsafe encourages contributions and collaborations.
 Please note that OTsafe may not be suitable for small teams with limited resources, or in scenarios where a comprehensive safety-oriented solution is not necessary.
 
+## Components
+
+The three main elements of OTsafe include:
+
+- A [core library](#core-library) that establishes common syntax for any industrial component
+- An extensible detection framework which allows teams to test and apply custom detections and responses. (Contact me if you want to collaborate on this! Need more hardware testing)
+- Implementation automation hub, centered around Jenkins. This helps you build, test, and deploy your specific implementation. 
+
 ## Core Library
 
-The core library of OTsafe is a Python API enabling users to model pertinent components of a cyber-physical process. It allows real-time sensor readings, emulates noisy sensors, and offers a wide array of features for realistically representing industrial components.
+The core library of OTsafe is a Python API, enabling users to model pertinent components of a cyber-physical process. It allows real-time sensor readings, emulates noisy sensors, and offers a wide array of features for realistically representing industrial components. 
 
 ## Detections
 
-Once process telemetry data is ingested, OTsafe enables the building of detections for unsafe conditions. Detections are engineered intelligently, often involving process engineers and subject matter experts (SMEs). This allows for the detection of anomalous and malicious modifications to the process.
+OTsafe enables the building of detections for unsafe conditions. Detections can be built in pure Python or can be codified in YAML files (everything-as-code FTW!). 
+
+Detections can be tested against historic data (PCASs), or via live process telemetry and data via a local network interface.  As always, be smart about what you connect to your control network.  Use of a data diode or span port is highly recommended.  
 
 ## Automation capabilities
 
@@ -83,7 +87,7 @@ vim docker-compose.yml # update this file with your postgres values
 docker-compose up
 ```
 
-## Usage
+## Using OTsafe
 
 For a comprehensive demo, please see [this Jupyter notebook](otsafe/demo/demo.ipynb) for an interactive demo and guide. 
 
