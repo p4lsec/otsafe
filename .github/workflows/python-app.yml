@@ -37,3 +37,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - uses: anchore/sbom-action@v0
+      with:
+        format: cyclonedx
+        artifact-name: otsafe_sbom.json
