@@ -1,6 +1,6 @@
 [project]
 name = "otsafe"
-version = "0.0.1"
+version = "1.0.0"
 authors = [
   { name="Jace Powell", email="otsafeproject@gmail.com" },
 ]
