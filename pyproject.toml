@@ -5,13 +5,11 @@ authors = [
   { name="Jace Powell", email="otsafeproject@gmail.com" },
 ]
 description = "OTsafe is a Python-based framework which enables new cyber-safety modeling, detection, and response capabilities. Designed to secure critical processes down at the lowest levels, OTsafe allows practicioners to secure systems from cyber-physical threats, where priorities include the protection of people, equipment, and the environment."
-dependencies = [
-  "cryptography",
-  "pymodbus",
-  "pyshark",
-  "python-dotenv"
-]
 readme = "README.md"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
 
 [project.urls]
 "Homepage" = "https://github.com/p4lsec/otsafe"
