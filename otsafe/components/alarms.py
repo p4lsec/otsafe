@@ -1,5 +1,5 @@
 from otsafe.components.generic import Component
-from otsafe.exceptions import AlarmException
+from otsafe.exceptions.exceptions import AlarmException
 
 class Alarm(Component):
     def __init__(

@@ -1,10 +1,10 @@
 import os
 import time
 
-from components.generic import Component
-from components.sensors import Sensor
-from components.actuators import Actuator
-from components.alarms import Alarm
+from otsafe.components.generic import Component
+from otsafe.components.sensors import Sensor
+from otsafe.components.actuators import Actuator
+from otsafe.components.alarms import Alarm
 
 from dotenv import find_dotenv, load_dotenv
 

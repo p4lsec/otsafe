@@ -1,4 +1,4 @@
-from components.generic import Component
+from otsafe.components.generic import Component
 
 
 class Valve(Component):

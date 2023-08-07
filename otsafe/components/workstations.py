@@ -1,10 +1,9 @@
-from components.generic import Component
+from otsafe.components.generic import Component
 
 
-class DomainController(Component):
-
+class Workstation(Component):
     """
-    This class is designed to represent a Domain Controller. Includes default values for the host OS and application.  
+    This class is designed to represent an engineering, safety engineering, or other workstation. Includes default values for the host OS and application.  
     """
 
     def __init__(
@@ -14,8 +13,6 @@ class DomainController(Component):
         os_version: str = None,
         hostname: str = None,
         user: str = None,
-        application_name: str = None,
-        application_version: str = None,
         **kwargs
     ) -> None:
         
@@ -24,8 +21,6 @@ class DomainController(Component):
         self.os_version = os_version
         self.hostname = hostname
         self.user = user
-        self.application_name = application_name
-        self.application_version = application_version
         
         # Apply kwargs last so they can override the defaults
         self.__dict__.update(kwargs)

@@ -1,4 +1,4 @@
-from components.generic import Component
+from otsafe.components.generic import Component
 
 
 class Burner(Component):
@@ -6,7 +6,7 @@ class Burner(Component):
         super().__init__(name)
         self.name = name
         self.flame = flame
-        self.temperature = temperature,
+        self.temperature = temperature
         
         # Apply kwargs last so they can override the defaults
         self.__dict__.update(kwargs)

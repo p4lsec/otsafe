@@ -1,10 +1,10 @@
-from components.generic import Component
+from otsafe.components.generic import Component
 
 
-class Historian(Component):
+class Server(Component):
 
     """
-    This class is designed to represent a Historian server. 
+    This class is designed to represent a server. 
     """
 
     def __init__(
