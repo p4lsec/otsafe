@@ -37,10 +37,16 @@ class Sensor(Component):
     def read(self) -> str:
         return f"{self.value}{self.unit}"
 
-    def noisy_read(self, percentage: float) -> int:
+    def noisy_read(self, percentage: float) -> str:
+        """
+        This method 
+        """
+
+        # math was recommended by Copilot, hope it works!  Seems ok at a glance but I'm no mathmagician.  -Jace
+
         _value = self.value * (
             1 + (random() * percentage * 2 - percentage)
-        )  # math was recommended by Copilot, hope it works!  Seems ok at a glance but I'm no mathmagician.  -Jace
+        )  
         return f"{_value}{self.unit}"
 
     def change_value_over_time(self, value: int, seconds: int):
