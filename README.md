@@ -16,7 +16,9 @@ OTsafe can be applied across a variety of scenarios for bolstering the safety me
 
 - **Highly secured OT Environments**: OTsafe is ideal for organizations that operate in highly secure environments, such as critical infrastructure, where any deviation from normal operating parameters could have significant implications. OTsafe's comprehensive monitoring and control measures can help understand the safety implications of a control network.  OTsafe's ultimate goal is to detect and respond to anomalies before they cause damage.
 
-- **Insider Threats**:  The impact of an insider threat in a control environment has already proven to be catastrophic (see [this article about a disgruntled water employee here](hhttps://www.waterisac.org/portal/updated-october-21-2021-insider-threat-–-former-employee-indicted-unauthorized-computer)).  OTsafe can provide protection against insider threats by operating as a tamper-proof layer of visibility and control.  
+- **Insider Threats**:  The impact of an insider threat in a control environment has already proven to be catastrophic (see [this article about a disgruntled water employee here](hhttps://www.waterisac.org/portal/updated-october-21-2021-insider-threat-–-former-employee-indicted-unauthorized-computer)).  OTsafe can provide protection against insider threats by operating as a tamper-proof layer of visibility and control.
+
+- **Accident Investigators**: Teams that are investigating industrial accidents and near-misses can use OTsafe to model the control system, allowing them to quickly and clearly see what went wrong, and when.
 
 - **Safety Prioritization**: Organizations that prioritize safety and want an additional layer of controls can benefit from OTsafe. It offers a comprehensive set of tools to monitor and manage equipment, ensuring safe operation and compliance with safety standards.
 
