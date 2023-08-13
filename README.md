@@ -61,17 +61,17 @@ OTsafe utilizes Jenkins for orchestration, allowing for easy deployment, scalabi
 
 ## Install
 
-To install the core library from PyPI:
+This package will not be published on PyPI. To install the core library using pip, you can run the following command:
 
 ```
-pip install otsafe
+python3 -m pip install https://github.com/p4lsec/otsafe.git@main
 ```
 
 To install and use from source:
 
 ```
 git clone git@github.com:p4lsec/otsafe.git
-cd otsafe & \
+cd otsafe
 python3 -m venv ot-venv
 source ot-venv/bin/activate
 python3 -m pip install -e .
@@ -81,7 +81,7 @@ To install the full tooling (Jenkins, nginx, Postgres, Redis, etc):
 
 ```
 git clone git@github.com:p4lsec/otsafe.git
-cd otsafe & \
+cd otsafe
 python3 -m venv ot-venv
 source ot-venv/bin/activate
 python3 -m pip install -e .
