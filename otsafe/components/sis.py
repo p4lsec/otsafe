@@ -36,7 +36,7 @@ class SIS(Component):
 
         self.min_alarm_value = value
         if self.value <= value:
-            self.min_alarm.raise_alarm("Min alarm SIS triggered!")
+            self.raise_alarm("Min alarm SIS triggered!")
 
     
     def set_max_alarm(self, value) -> None:
@@ -46,7 +46,7 @@ class SIS(Component):
 
         self.max_alarm_value = value
         if self.value >= value:
-            self.max_alarm.raise_alarm("Max alarm SIS triggered!")
+            self.raise_alarm("Max alarm SIS triggered!")
 
     
     def raise_alarm(self, message) -> None:
