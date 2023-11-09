@@ -53,7 +53,7 @@ The core library of OTsafe is a Python API, enabling users to model pertinent co
 
 OTsafe enables the building of detections for unsafe conditions. Detections can be built in pure Python or can be codified in YAML files (everything-as-code FTW!). 
 
-Detections can be tested against historic data (PCASs), or via live process telemetry and data via a local network interface.  As always, be smart about what you connect to your control network.  Use of a data diode or span port is highly recommended.  
+Detections can be tested against historic data (via PCAPs), or via live process telemetry and data via a local network interface.  As always, be smart about what you connect to your control network.  Use of a data diode or span port is highly recommended.  
 
 ## Automation capabilities
 
