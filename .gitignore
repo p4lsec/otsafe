@@ -39,3 +39,4 @@ __pypackages__/
 # Other
 .vscode
 test.py
+*.code-workspace
